@@ -1,0 +1,7 @@
+com\giret\apigiretresources\controller\HistoricalResourceController.class
+com\giret\apigiretresources\model\HistoricalResource.class
+com\giret\apigiretresources\repository\HistoricalResourceRepository.class
+com\giret\apigiretresources\model\HistoricalResource$HistoricalResourceBuilder.class
+com\giret\apigiretresources\service\HistoricalResourceServiceImpl.class
+com\giret\apigiretresources\ApiHistoricalResourcesApplication.class
+com\giret\apigiretresources\service\HistoricalResourceService.class
