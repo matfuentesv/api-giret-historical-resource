@@ -2,7 +2,6 @@ package com.giret.apihistorical.resource.service;
 
 import com.giret.apihistorical.resource.model.HistoricalResource;
 import com.giret.apihistorical.resource.repository.HistoricalResourceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,9 +9,12 @@ import java.util.List;
 @Service
 public class HistoricalResourceServiceImpl implements HistoricalResourceService {
 
-    @Autowired
-    HistoricalResourceRepository historicalResourceRepository;
 
+    private final HistoricalResourceRepository historicalResourceRepository;
+
+    public HistoricalResourceServiceImpl(HistoricalResourceRepository historicalResourceRepository) {
+        this.historicalResourceRepository = historicalResourceRepository;
+    }
 
     @Override
     public HistoricalResource saveHistorialRecurso(HistoricalResource historialRecurso) {

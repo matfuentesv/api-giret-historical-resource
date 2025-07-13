@@ -2,7 +2,6 @@ package com.giret.apihistorical.resource.controller;
 
 import com.giret.apihistorical.resource.model.HistoricalResource;
 import com.giret.apihistorical.resource.service.HistoricalResourceService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +11,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class HistoricalResourceController {
 
-    @Autowired
-    HistoricalResourceService historicalResourceService;
 
+    private final HistoricalResourceService historicalResourceService;
+
+    public HistoricalResourceController(HistoricalResourceService historicalResourceService) {
+        this.historicalResourceService = historicalResourceService;
+    }
 
     @PostMapping("/saveHistoricalResource")
     public ResponseEntity<HistoricalResource> saveHistorial(@RequestBody HistoricalResource historialRecurso) {

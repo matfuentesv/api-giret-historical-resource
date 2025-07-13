@@ -1,0 +1,6 @@
+projectKey=api-giret-historical-resource
+serverUrl=http://localhost:9000
+serverVersion=10.7.0.96327
+dashboardUrl=http://localhost:9000/dashboard?id=api-giret-historical-resource
+ceTaskId=92b700e0-cf55-41c8-a2d9-28056787d61c
+ceTaskUrl=http://localhost:9000/api/ce/task?id=92b700e0-cf55-41c8-a2d9-28056787d61c

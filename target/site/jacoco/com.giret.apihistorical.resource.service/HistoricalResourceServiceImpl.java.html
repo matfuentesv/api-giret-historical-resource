@@ -2,33 +2,35 @@
 
 import com.giret.apihistorical.resource.model.HistoricalResource;
 import com.giret.apihistorical.resource.repository.HistoricalResourceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-<span class="fc" id="L11">public class HistoricalResourceServiceImpl implements HistoricalResourceService {</span>
+public class HistoricalResourceServiceImpl implements HistoricalResourceService {
 
-    @Autowired
-    HistoricalResourceRepository historicalResourceRepository;
 
+    private final HistoricalResourceRepository historicalResourceRepository;
+
+<span class="fc" id="L15">    public HistoricalResourceServiceImpl(HistoricalResourceRepository historicalResourceRepository) {</span>
+<span class="fc" id="L16">        this.historicalResourceRepository = historicalResourceRepository;</span>
+<span class="fc" id="L17">    }</span>
 
     @Override
     public HistoricalResource saveHistorialRecurso(HistoricalResource historialRecurso) {
-<span class="fc" id="L19">        return historicalResourceRepository.save(historialRecurso);</span>
+<span class="fc" id="L21">        return historicalResourceRepository.save(historialRecurso);</span>
     }
 
     @Override
     public List&lt;HistoricalResource&gt; getAllHistoriales() {
-<span class="fc" id="L24">        return historicalResourceRepository.findAll();</span>
+<span class="fc" id="L26">        return historicalResourceRepository.findAll();</span>
     }
 
     @Override
     public List&lt;HistoricalResource&gt; getHistorialesByRecursoId(Long recursoId) {
-<span class="fc" id="L29">        return historicalResourceRepository.findAll().stream()</span>
-<span class="fc" id="L30">                .filter(h -&gt; h.getRecursoId().equals(recursoId))</span>
-<span class="fc" id="L31">                .toList();</span>
+<span class="fc" id="L31">        return historicalResourceRepository.findAll().stream()</span>
+<span class="fc" id="L32">                .filter(h -&gt; h.getRecursoId().equals(recursoId))</span>
+<span class="fc" id="L33">                .toList();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

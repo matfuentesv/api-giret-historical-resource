@@ -2,7 +2,6 @@
 
 import com.giret.apihistorical.resource.model.HistoricalResource;
 import com.giret.apihistorical.resource.service.HistoricalResourceService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,26 +9,29 @@ import java.util.List;
 
 @RestController
 @RequestMapping(&quot;/api&quot;)
-<span class="fc" id="L13">public class HistoricalResourceController {</span>
+public class HistoricalResourceController {
 
-    @Autowired
-    HistoricalResourceService historicalResourceService;
 
+    private final HistoricalResourceService historicalResourceService;
+
+<span class="fc" id="L17">    public HistoricalResourceController(HistoricalResourceService historicalResourceService) {</span>
+<span class="fc" id="L18">        this.historicalResourceService = historicalResourceService;</span>
+<span class="fc" id="L19">    }</span>
 
     @PostMapping(&quot;/saveHistoricalResource&quot;)
     public ResponseEntity&lt;HistoricalResource&gt; saveHistorial(@RequestBody HistoricalResource historialRecurso) {
-<span class="fc" id="L21">        HistoricalResource saved = historicalResourceService.saveHistorialRecurso(historialRecurso);</span>
-<span class="fc" id="L22">        return ResponseEntity.ok(saved);</span>
+<span class="fc" id="L23">        HistoricalResource saved = historicalResourceService.saveHistorialRecurso(historialRecurso);</span>
+<span class="fc" id="L24">        return ResponseEntity.ok(saved);</span>
     }
 
     @GetMapping(&quot;/findAllHistoricalResource&quot;)
     public ResponseEntity&lt;List&lt;HistoricalResource&gt;&gt; getAllHistoriales() {
-<span class="fc" id="L27">        return ResponseEntity.ok(historicalResourceService.getAllHistoriales());</span>
+<span class="fc" id="L29">        return ResponseEntity.ok(historicalResourceService.getAllHistoriales());</span>
     }
 
     @GetMapping(&quot;/findHistoricalResource/{recursoId}&quot;)
     public ResponseEntity&lt;List&lt;HistoricalResource&gt;&gt; getHistorialesByRecurso(@PathVariable Long recursoId) {
-<span class="fc" id="L32">        return ResponseEntity.ok(historicalResourceService.getHistorialesByRecursoId(recursoId));</span>
+<span class="fc" id="L34">        return ResponseEntity.ok(historicalResourceService.getHistorialesByRecursoId(recursoId));</span>
     }
 
 }
